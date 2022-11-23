@@ -28,13 +28,19 @@ const writeFile = (fp, c) => {
 
 const fetcher = (url, filepath) => {
 
+  if (url === undefined || filepath === undefined) {
+    console.error('Error: Invalid filepath!');
+    rl.close();
+    return;
+  }
+
   //request to make http calls
   request(url, (error, response, body) => {
 
     //checks if url is valid
     if (error) {
       console.log('statusCode:', response && response.statusCode);
-      console.error('Error: Invalid URL!', error);
+      console.error('Error: Invalid URL!');
       rl.close();
 
     } else {
