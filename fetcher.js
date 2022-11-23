@@ -28,7 +28,7 @@ const writeFile = (fp, c) => {
 
 const fetcher = (url, filepath) => {
 
-  if (url === undefined || filepath === undefined) {
+  if (filepath === undefined) {
     console.error('Error: Invalid filepath!');
     rl.close();
     return;
